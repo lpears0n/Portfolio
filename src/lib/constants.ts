@@ -1,9 +1,7 @@
 export const LINKS = {
-  github: "https://github.com/delphyinium",
-  linkedin: "https://www.linkedin.com/in/lucas-pearson-202721303/",
-  medium: "https://medium.com",
-  discord: "https://discordapp.com/users/461206564569743375",
-  dribble: "https://dribbble.com/",
+  github: "https://github.com/lpears0n",
+  linkedin: "https://www.linkedin.com/in/lpears0n",
+  email: "hello@lpearson.dev",
 };
 
 export const loaderAnimation = [

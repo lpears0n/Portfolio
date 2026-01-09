@@ -21,7 +21,7 @@ const { frontmatter } = Astro.props;
   title={`Lucas Pearson - ${frontmatter.title}`}
   description={frontmatter.description}
 >
-  <main class="mx-auto max-w-3xl w-full h-screen p-8 text-neutral-100">
+  <main class="mx-auto max-w-3xl w-full h-screen p-8 text-gray-900 dark:text-neutral-100">
     <a
       href="/blog"
       class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 border-1 border-solid border-neutral-600 rounded-lg mb-8"
@@ -34,7 +34,7 @@ const { frontmatter } = Astro.props;
         <p>{frontmatter.minutesRead}</p>
       </div>
     </div>
-    <article class="prose prose-p:text-red-500 prose-slate prose-invert">
+    <article class="prose prose-slate dark:prose-invert">
       <slot />
     </article>
   </main>

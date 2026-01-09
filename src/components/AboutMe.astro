@@ -3,28 +3,30 @@ import Card from "./Card/index.astro";
 ---
 
 <Card colSpan="md:col-span-1" rowSpan="md:row-span-6" title="About me">
-  <div class="flex flex-col gap-2">
-    <p class="text-sm font-light">
-      Hi, I'm Lucas, a full-time student and software engineer from South Carolina.
-      <br />
-      My primary tools of choice includes:
-      <ul class="list-disc list-inside">
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>SolidJS</li>
-        <li>Astro</li>
-        <li>Svelte</li>
-        <li>NodeJS</li>
-      </ul>
+  <div class="flex flex-col gap-4">
+    <p class="text-sm font-light leading-relaxed text-gray-800 dark:text-white">
+      Sophomore CS student at <span class="font-semibold text-orange-600 dark:text-orange-400">Clemson University</span> studying data engineering and cloud systems.
     </p>
-    <p class="text-sm font-light">
-      Beyond programming, I'm passionate about Virtual Reality, whether it be hardware, software, or even bloatware.
-      Ask me about Volkswagen GTIs! 
+    <div>
+      <h3 class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Tech Stack</h3>
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <div class="space-y-1">
+          <p class="text-gray-700 dark:text-gray-300">• Python, Java, Ruby</p>
+          <p class="text-gray-700 dark:text-gray-300">• Svelte, Astro, React</p>
+          <p class="text-gray-700 dark:text-gray-300">• AWS, Azure, OVHcloud</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-gray-700 dark:text-gray-300">• Proxmox, Docker, ZFS</p>
+          <p class="text-gray-700 dark:text-gray-300">• Prometheus, Grafana</p>
+          <p class="text-gray-700 dark:text-gray-300">• UniFi Networking</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-sm font-light leading-relaxed text-gray-800 dark:text-white">
+      I run a self-hosted Proxmox cluster (256GB RAM, dual RTX 2080 Supers) for local LLM inference and infrastructure experimentation.
     </p>
-    <p class="text-sm font-light">
-      While I have some preferred tools, I always choose the best one for the
-      job, even if it's not on my usual list. My goal is to find the right
-      solution for each project.
+    <p class="text-sm font-light leading-relaxed text-gray-600 dark:text-gray-400">
+      Building production-grade self-hosted systems that reduce cloud dependency while maintaining enterprise-level reliability.
     </p>
   </div>
 </Card>

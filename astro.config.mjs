@@ -1,7 +1,4 @@
 import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify";
-import robotsTxt from "astro-robots-txt";
 import UnoCSS from "@unocss/astro";
 import icon from "astro-icon";
 
@@ -12,15 +9,8 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://lucaspearson.xyz/",
+  site: "https://lucaspearson.xyz",
   integrations: [
-    sitemap(),
-    robotsTxt({
-      sitemap: [
-        "https://lucaspearson.xyz/sitemap-index.xml",
-        "https://lucaspearson.xyz/sitemap-0.xml",
-      ],
-    }),
     solidJs(),
     UnoCSS({ injectReset: true }),
     icon(),
@@ -29,9 +19,15 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
-  output: "server",
-  adapter: netlify({ edgeMiddleware: true }),
+  build: {
+    inlineStylesheets: "auto",
+  },
   vite: {
     assetsInclude: "**/*.riv",
+    server: {
+      watch: {
+        usePolling: false,
+      },
+    },
   },
 });

@@ -7,17 +7,14 @@ dist/
 # dependencies
 node_modules/
 
-.netlify/
-
 # logs
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
 # environment variables
 .env
 .env.production
 
-# macOS-specific files
-.DS_Store
+# private development notes
+DEVELOPMENT-NOTES.md
+TODO.md
+NOTES.md

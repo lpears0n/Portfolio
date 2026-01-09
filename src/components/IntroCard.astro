@@ -2,19 +2,21 @@
 import Card from "./Card/index.astro";
 import Button from "./Button.astro";
 import { LINKS } from "../lib/constants";
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
 import Tooltip from "./Tooltip/index";
 import { Image } from "astro:assets";
 ---
 
 <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
-  <div class="flex w-full h-full">
-    <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
+  <div class="flex w-full h-full relative overflow-hidden">
+    <!-- Text & Buttons -->
+    <div class="flex flex-col justify-between md:max-h-[300px] gap-4 relative z-10">
       <div class="flex flex-col h-full">
-        <h6 class="text-sm font-light m-0 text-gray-500">welcome</h6>
-        <p class="m-0 font-light text-xl">
-          Hi, I'm <b class="font-bold">Lucas Pearson</b>, a full-time student and software
-          developer with strong focus on user experience, animations, optimization, and reliability.
+        <h6 class="text-sm font-light m-0 text-gray-500 dark:text-gray-500">welcome</h6>
+        <p class="m-0 font-light text-2xl leading-relaxed text-gray-900 dark:text-white">
+          Hi, I'm <b class="font-bold">Lucas Pearson</b>, a CS student at Clemson<br />
+          specializing in <span class="text-blue-600 dark:text-blue-400">data engineering</span>, <span class="text-green-600 dark:text-green-400">cloud systems</span>,<br />
+          and <span class="text-purple-600 dark:text-purple-400">infrastructure</span>.
         </p>
       </div>
       <div class="flex gap-4">
@@ -24,16 +26,10 @@ import { Image } from "astro:assets";
             <span class="sr-only">GitHub Profile</span>
           </Button>
         </a>
-        <a href={LINKS.linkedin} aria-label="linkeding profile" target="_blank">
+        <a href={LINKS.linkedin} aria-label="linkedin profile" target="_blank">
           <Button aria-label="linkedin profile">
             <Icon name="ri:linkedin-box-fill" class="h-6" />
-            <span class="sr-only">Linkedin Profile</span>
-          </Button>
-        </a>
-        <a href={LINKS.dribble} aria-label="dribble profile" target="_blank">
-          <Button aria-label="dribble profile">
-            <Icon name="ri:dribbble-fill" class="h-6" />
-            <span class="sr-only">Dribble Profile</span>
+            <span class="sr-only">LinkedIn Profile</span>
           </Button>
         </a>
         <Tooltip client:visible>
@@ -44,12 +40,15 @@ import { Image } from "astro:assets";
         </Tooltip>
       </div>
     </div>
+
+    <!-- Profile Image -->
     <Image
-      width="300"
-      height="300"
-      src="/me.webp"
-      class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
-      alt="memoji of lucaspearson"
+      src="/lucas.jpeg"
+      alt="Lucas Pearson"
+      inferSize={true}
+      width={300}
+      height={300}
+       class="absolute bottom-2 right-2 w-52 sm:w-56 md:w-60 lg:w-64 xl:w-72 object-cover rounded-full ring-4 ring-gray-300 dark:ring-gray-700/50 pointer-events-none opacity-100 z-0"
     />
   </div>
 </Card>

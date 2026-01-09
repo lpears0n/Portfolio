@@ -18,7 +18,7 @@ interface Props {
 const { title, description, page, slug, frontmatter } = Astro.props;
 const image =
   page === "travel"
-    ? `${Astro.url.origin}/globe_preview.webp"`
+    ? `${Astro.url.origin}/globe_preview.png`
     : `${Astro.url.origin}/og-image.png`;
 
 const schema =
@@ -29,11 +29,11 @@ const schema =
         name: "Lucas",
         url: "https://lucaspearson.xyz",
         sameAs: [
-          "https://www.linkedin.com/in/lucas-pearson-202721303/",
-          "https://github.com/delphyinium",
+          "https://www.linkedin.com/in/lpears0n",
+          "https://github.com/lpears0n",
         ],
         image: "",
-        jobTitle: "Freelance Frontend Developer",
+        jobTitle: "Computer Science Student",
         worksFor: {
           "@type": "Organization",
           name: "Self-Employed",
@@ -57,14 +57,14 @@ const schema =
         },
         headline: frontmatter?.title || title,
         description: frontmatter?.description || title,
-        image: "", //TODO: dynamic
+        image: `${Astro.url.origin}/og-image.png`,
         author: {
           "@type": "Person",
           name: "Lucas",
           url: "https://lucaspearson.xyz/",
           sameAs: [
-            "https://www.linkedin.com/in/lucas-pearson-202721303/",
-            "https://github.com/delphyinium",
+            "https://www.linkedin.com/in/lpears0n",
+            "https://github.com/lpears0n",
           ],
         },
         publisher: {
@@ -97,7 +97,7 @@ const schema =
     <meta property="og:url" content={Astro.url.origin} />
     <meta
       property="og:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
+      content={image || `${Astro.url.origin}/og-image.png`}
     />
     <!-- Basic Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -105,14 +105,31 @@ const schema =
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
+      content={image || `${Astro.url.origin}/og-image.png`}
     />
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+      
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
   <body
-    class="bg-darkslate-700 md:h-screen flex flex-col justify-center items-center"
+    class="bg-gray-50 dark:bg-darkslate-700 md:h-screen flex flex-col justify-center items-center transition-colors duration-200"
   >
     <slot name="loader" />
     <slot />

@@ -4,33 +4,29 @@ import { LINKS } from "../lib/constants";
 ---
 
 <Card colSpan="md:col-span-1" rowSpan="md:row-span-4">
-  <div class="h-full">
+  <div class="h-full flex flex-col justify-start gap-8">
     <header class="flex items-center">
-      <h1 class="text-white text-xl font-bold">
-        Let's start working together!
+      <h1 class="text-gray-900 dark:text-white text-2xl font-bold">
+        Let's build something.
       </h1>
     </header>
-    <address class="flex flex-col mt-4">
-      <h2 class="text-gray-500">Contact Details</h2>
-      <p>lucas.pearson@live.com</p>
-      <p>South Carolina</p>
-    </address>
-    <div class="flex flex-col mt-4 w-fit">
-      <h2 class="text-gray-500">Socials</h2>
-      <ul>
-        <li>
-          <a href={LINKS.linkedin} target="_blank">Linkedin</a>
-        </li>
-        <li>
-          <a href={LINKS.github} target="_blank">Github</a>
-        </li>
-        <li>
-          <a href={LINKS.medium} target="_blank">Medium</a>
-        </li>
-        <li>
-          <a href={LINKS.discord} target="_blank">Discord</a>
-        </li>
-      </ul>
+    <div class="space-y-6">
+      <address class="flex flex-col not-italic">
+        <h2 class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider mb-2">Contact</h2>
+        <a href="mailto:hello@lpearson.dev" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">hello@lpearson.dev</a>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Clemson, SC</p>
+      </address>
+      <div class="flex flex-col">
+        <h2 class="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider mb-2">Connect</h2>
+        <ul class="space-y-1">
+          <li>
+            <a href={LINKS.linkedin} target="_blank" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">LinkedIn</a>
+          </li>
+          <li>
+            <a href={LINKS.github} target="_blank" class="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">GitHub</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </Card>
